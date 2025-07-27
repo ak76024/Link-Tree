@@ -41,32 +41,50 @@ const Page = () => {
       return;
     }
 
-    let req = await fetch('/api/add', {
+    const addLink = async (text, link, handle) => {
+  setLoading(true);
+
+  if (!text || !link || !handle) {
+    toast.warn("Please fill all fields", { ...showtoast() });
+    setLoading(false);
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "handle": handle,
-        "link": link,
-        "linktext": text
+        handle,
+        link,
+        linktext: text
       }),
     });
-    let res = await req.json();
-    if (res.success) {
-      toast.success(res.message, {
-        ...showtoast()
-      });
-    } else {
-      toast.error(res.message, {
-        ...showtoast()
-      });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`Server error: ${response.status} - ${errText}`);
     }
-    setlink("");
-    setLoading(false);
-    setlinktext("");
-    return res;
+
+    const res = await response.json();
+
+    if (res.success) {
+      toast.success(res.message, { ...showtoast() });
+    } else {
+      toast.error(res.message, { ...showtoast() });
+    }
+
+  } catch (err) {
+    console.error("Request failed:", err);
+    toast.error("Something went wrong while saving link!", { ...showtoast() });
   }
+
+  setlink("");
+  setlinktext("");
+  setLoading(false);
+};
   return (
     <>
       <ToastContainer />
