@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import clientPromise from "@/lib/mongodb";  // fix typo here
+import clientPromise from "@/lib/monogodb";  // fix typo here
 
 export async function POST(request) {
   let body;
