@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
-import { useSearchParams } from 'next/navigation';
 import { Spinner } from '@/components/Spinner';
 
 const Page = () => {
@@ -10,12 +9,9 @@ const Page = () => {
   const inputBox = "mx-4 w-full flex items-center justify-center";
   const btn = "bg-slate-900 hover:scale-110 transition-all duration-150 ease-in-out active:scale-90 text-white w-fit px-6 rounded-full font-bold py-4";
 
-  const searchParams = useSearchParams();
-  const paramsHandle = searchParams.get('handle') || "";
-
   const [link, setlink] = useState("")
   const [linktext, setlinktext] = useState("");
-  const [handle, setHandle] = useState(paramsHandle || "");
+  const [handle, setHandle] = useState("");
   const [pic, setPic] = useState("");
   const [loading, setLoading] = useState(false);
 
