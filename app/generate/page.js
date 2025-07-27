@@ -4,7 +4,7 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { useSearchParams } from 'next/navigation';
 import { Spinner } from '@/components/Spinner';
 
-const page = () => {
+const Page = () => {
   const input = "bg-white focus:outline-pink-900 font-bold text-[#757575] rounded-full text-lg py-4 w-[80%] md:w-[50%] px-4 mb-4";
   const steps = "font-semibold text-xl";
   const inputBox = "mx-4 w-full flex items-center justify-center";
@@ -137,4 +137,4 @@ const page = () => {
   );
 }
 
-export default page;
+export default Page;
