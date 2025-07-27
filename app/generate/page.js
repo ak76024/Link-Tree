@@ -39,7 +39,7 @@ const Page = () => {
 
     if (!text || !link || !handle) {
       toast.warn("Please fill all fields", {
-        ...showtoast
+        ...showtoast()
       });
       setLoading(false);
       return;
@@ -59,11 +59,11 @@ const Page = () => {
     let res = await req.json();
     if (res.success) {
       toast.success(res.message, {
-        ...showtoast
+        ...showtoast()
       });
     } else {
       toast.error(res.message, {
-        ...showtoast
+        ...showtoast()
       });
     }
     setlink("");
