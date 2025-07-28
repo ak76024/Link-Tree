@@ -38,8 +38,7 @@ export default function Page() {
     return;
   }
 
-  try {
-    const response = await fetch('/api/add', {
+      const response = await fetch('/api/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,11 +62,6 @@ export default function Page() {
     } else {
       toast.error(res.message, { ...showtoast() });
     }
-
-  } catch (err) {
-    console.error("Request failed:", err);
-    toast.error("Something went wrong while saving link!", { ...showtoast() });
-  }
 
   setlink("");
   setlinktext("");
