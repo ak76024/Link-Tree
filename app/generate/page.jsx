@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { Spinner } from '@/components/Spinner';
 
-const Page = () => {
+export default function Page() {
   const input = "bg-white focus:outline-pink-900 font-bold text-[#757575] rounded-full text-lg py-4 w-[80%] md:w-[50%] px-4 mb-4";
   const steps = "font-semibold text-xl";
   const inputBox = "mx-4 w-full flex items-center justify-center";
@@ -150,5 +150,3 @@ const Page = () => {
     </>
   );
 }
-
-export default Page;
