@@ -29,18 +29,6 @@ export default function Page() {
     }
   };
 
-  const addLink = async (text, link, handle) => {
-
-    setLoading(true);
-
-    if (!text || !link || !handle) {
-      toast.warn("Please fill all fields", {
-        ...showtoast()
-      });
-      setLoading(false);
-      return;
-    }
-
     const addLink = async (text, link, handle) => {
   setLoading(true);
 
